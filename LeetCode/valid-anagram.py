@@ -4,10 +4,7 @@ class Solution:
         if len(s) != len(t):
             return False
         for i,letter in enumerate(s):
-            print(letter)
-            print(s.count(letter), t.count(letter))
-            if letter in t and s.count(letter) == t.count(t[i]):
-                print(True, s[i], t[i])
+            if letter in t and s.count(letter) == t.count(letter):
                 anagram.append(True)
             else:
                 anagram = []
@@ -25,7 +22,7 @@ class Solution:
 """
 if __name__ == "__main__":
     solution  = Solution()
-    s = "anagtam"
-    t = "nbgbram"
+    s = "anagram"
+    t = "nagaram"
     result = solution.isAnagram(s, t)
     print(result)
