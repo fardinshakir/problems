@@ -5,7 +5,6 @@ class Solution:
         myvalues = {}
         for i, num in enumerate(nums):
             check = target - num
-            #print(f"{check} = {target} - {num}")
             if check in myvalues:
                 return [myvalues[check], i]
 
