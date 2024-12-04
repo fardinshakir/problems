@@ -1,30 +1,30 @@
 from typing import List
 from pprint import pprint
+from collections import defaultdict
+# Need to review
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        pprint(board)
-        validity = True
-        transposed = [list(row) for row in zip(*board)]
-        for n in board:
-            while '.' in n:
-                n.remove('.')
-            #print(sorted(n))
-            #print(sorted(list(set(n))), '\n')
-            if sorted(n) != sorted(list(set(n))):
-                validity = False
+        rows = defaultdict(set)
+        cols = defaultdict(set)
+        boxes = defaultdict(set)
 
-        for n in transposed:
-            while '.' in n:
-                n.remove('.')
-            #print(sorted(n))
-            #print(sorted(list(set(n))), '\n')
-            if sorted(n) != sorted(list(set(n))):
-                validity = False
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == ".":
+                    continue
 
-        return validity
+                if board[r][c] in rows[r] or board[r][c] in cols[c] or board[r][c] in boxes[(r // 3, c // 3)]:
+                    return False
 
+                rows[r].add(board[r][c])
+                cols[c].add(board[r][c])
+                boxes[(r // 3, c // 3)].add(board[r][c])
+
+        return True
+                #print(board[r][c])
 if __name__ == "__main__":
     solution  = Solution()
+    #board = [[".",".",".",".","5",".",".","1","."],[".","4",".","3",".",".",".",".","."],[".",".",".",".",".","3",".",".","1"],["8",".",".",".",".",".",".","2","."],[".",".","2",".","7",".",".",".","."],[".","1","5",".",".",".",".",".","."],[".",".",".",".",".","2",".",".","."],[".","2",".","9",".",".",".",".","."],[".",".","4",".",".",".",".",".","."]]
     board = [[".",".",".",".","5",".",".","1","."],[".","4",".","3",".",".",".",".","."],[".",".",".",".",".","3",".",".","1"],["8",".",".",".",".",".",".","2","."],[".",".","2",".","7",".",".",".","."],[".","1","5",".",".",".",".",".","."],[".",".",".",".",".","2",".",".","."],[".","2",".","9",".",".",".",".","."],[".",".","4",".",".",".",".",".","."]]
     result = solution.isValidSudoku(board)
     print(result)
