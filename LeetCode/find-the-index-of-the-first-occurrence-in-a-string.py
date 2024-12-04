@@ -3,12 +3,9 @@ class Solution:
         i = 0
         if needle in haystack:
             while i < len(haystack):
-                for n in range(i, len(haystack)):
-                    if haystack[n] == needle[0]:
-                        if haystack[n:n+len(needle)] == needle:
-                            return n
+                if haystack[i:len(needle)+i] == needle:
+                    return i
                 i+=1
-
         else:
             return -1
 
