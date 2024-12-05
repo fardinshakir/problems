@@ -1,26 +1,13 @@
-# Need to solve
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        s = s[::-1].lower()
-        print(s)
-        word = ""
-        i = 0
-        found = False
-        while found is not True:
-            try:
-                if s[i].isalnum():
-                    word += s[i]
-                else:
-                    if s[i+1] == " ":
-                        i +=1
-                    elif s[i+1].isalnum():
-                        return True
-                i += 1
-            except:
-                return len(s)
-        return len(word)
+        words = s.strip().split()
+
+        if not words:
+            return 0
+
+        return len(words[-1])
 if __name__ == "__main__":
     solution = Solution()
-    s = "Racecar aw  "
+    s = "Hello World"
     result = solution.lengthOfLastWord(s)
     print(result)
