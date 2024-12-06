@@ -9,7 +9,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
         dummy = ListNode()
         current = dummy
         while list1 and list2:
@@ -26,6 +26,7 @@ class Solution:
         else:
             current.next = list2
         return dummy.next
+        
 def createLinkedList(lst):
     head = None
     for val in reversed(lst):
