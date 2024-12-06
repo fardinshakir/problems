@@ -1,8 +1,6 @@
 from typing import List
 from typing import Optional
 
-
-# Need to review
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -26,7 +24,7 @@ class Solution:
         else:
             current.next = list2
         return dummy.next
-        
+
 def createLinkedList(lst):
     head = None
     for val in reversed(lst):
