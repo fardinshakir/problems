@@ -6,6 +6,8 @@ class Solution:
         highest = 7
         for s in prices[1:]:
             if s > highest
+        # iterage through and find the biggest and smallest for each s
+        # left and right point? 
 if __name__ == "__main__":
     solution = Solution()
     prices = [7,1,5,3,6,4]
