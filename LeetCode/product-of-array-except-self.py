@@ -8,7 +8,8 @@ class Solution:
             left[i] = left[i-1] * nums[i-1]
         for i in range(n - 2, -1, -1):
             right[i] = right[i + 1] * nums[i + 1]
-        print(left, right)
+        test = [left[i] * right[i] for i in range(n)]
+        return test
 if __name__ == "__main__":
     solution  = Solution()
     nums = [1,2,3,4]
