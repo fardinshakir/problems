@@ -3,26 +3,22 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s:
             return 0
-        holder = 1
-        longest = []
+        holder = 0
+        longest = 0
         my_vals = {}
+
+        start = 0
         for i, c in enumerate(s):
-            print(c, holder, longest)
-            print(my_vals)
-            if c in my_vals or c == s[-1]:
-                longest.append(holder)
-                holder = 1
-                my_vals = {}
+            if c in my_vals and my_vals[c] >= start:
+                start = my_vals[c] + 1
 
-            elif c not in my_vals:
-                holder += 1
-                my_vals[c] = 1
-
-        print(longest)
-        return max(longest)
+            my_vals[c] = i
+            holder = i - start + 1
+            longest = max(longest, holder)
+        return longest
 
 if __name__ == "__main__":
     solution = Solution()
-    s = ""
+    s = "aababcabcd"
     result = solution.lengthOfLongestSubstring(s)
     print(result)
