@@ -14,3 +14,8 @@ class Solution:
                 return True
             n = sum
             sum = 0
+if __name__ == "__main__":
+    solution = Solution()
+    n = 19
+    result = solution.isHappy(n)
+    print(result)
