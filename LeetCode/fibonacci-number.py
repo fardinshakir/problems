@@ -9,6 +9,6 @@ class Solution:
 
 if __name__ == "__main__":
     solution  = Solution()
-    n = 4
-    result = solution.fib(b)
+    n = 8
+    result = solution.fib(n)
     print(result)
