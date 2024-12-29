@@ -2,7 +2,7 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
 # Dynamic programming
-        """
+
                 if n <= 3:
                     return n
                 pre1 = 3
@@ -10,11 +10,10 @@ class Solution:
                 cur = 0
                 for _ in range(3, n):
                     cur = pre1 + pre2
-                    print(pre1, pre2, cur)
                     pre2 = pre1
                     pre1 = cur
                 return cur
-        """
+
 # Recursion
 """
         if n == 1:
@@ -27,6 +26,6 @@ class Solution:
 """
 if __name__ == "__main__":
     solution = Solution()
-    n = 44
+    n = 5
     result = solution.climbStairs(n)
     print(result)
